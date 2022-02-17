@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>What Programming Language Should I Learn?</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        justify-content: center;
+        text-align: center;
+        font-family: "Trebuchet MS";
+      }
+
+      #language {
+        font-size: 16vh;
+      }
+
+      #resource {
+        font-size: 8vh;
+      }
+
+      #altResource {
+        font-size: 4vh;
+        display: none;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        * {
+          color: #ccc;
+          background: #1e1e1e;
+        }
+      }
+
+      @media (prefers-color-scheme: light) {
+        * {
+          color: black;
+          background: white;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="language"></div>
+      <a id="resource">Start Learning Here</a>
+      <a id="altResource">Looking for A Free Resource?</a>
+    </div>
+    <script>
+      const language = document.getElementById('language');
+      const resource = document.getElementById('resource');
+      const altResource = document.getElementById('altResource');
+
+      const languages = [
+        ['JavaScript', 'https://javascript.info/'],
+        ['Python', 'https://docs.python.org/3/tutorial/'],
+        ['Java', 'https://www.amazon.com/dp/0596009208/', 'https://java-programming.mooc.fi/'],
+        ['C++', 'https://www.learncpp.com/'],
+        ['C', 'https://www.amazon.com/dp/0789751984/', 'http://www.learn-c.org/'],
+        ['C#', 'https://docs.microsoft.com/en-us/dotnet/csharp/tutorials/intro-to-csharp/'],
+        ['Rust', 'https://doc.rust-lang.org/book/'],
+        ['Kotlin', 'https://kotlinlang.org/docs/tutorials/'],
+        ['Haskell', 'https://haskellbook.com/', 'https://github.com/system-f/fp-course/'],
+        ['Go', 'https://tour.golang.org/welcome/1/'],
+        ['Elixir', 'https://elixir-lang.org/learning.html'],
+      ];
+
+      const [lang, res, alt] = languages[Math.floor(Math.random() * languages.length)];
+
+      language.innerHTML = lang;
+      resource.href = res;
+
+      if (alt !== undefined) {
+        altResource.style.display = 'block';
+        altResource.href = alt;
+      }
+
+    </script>
+  </body>
+</html>
